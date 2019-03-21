@@ -4,6 +4,7 @@ import { NativeScriptFormsModule} from 'nativescript-angular/forms';
 
 import { AppComponent } from './app.component';
 import { CurrentChallengeComponent } from './challenges/current-challenge/current-challenge.component';
+import { StackComponent } from './layouts/stack/stack.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -14,7 +15,7 @@ import { CurrentChallengeComponent } from './challenges/current-challenge/curren
 @NgModule({
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, NativeScriptFormsModule],
-  declarations: [AppComponent, CurrentChallengeComponent],
+  declarations: [AppComponent, CurrentChallengeComponent, StackComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA]
 })
