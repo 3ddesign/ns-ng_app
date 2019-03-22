@@ -1,14 +1,7 @@
 /* Add mobile styles for the component here.  */
-StackLayout {
+GridLayout {
   border-color: green;
   border-width: 5;
-  padding: 10;
-  height: 300;
-}
-
-label {
-  width: 50;
-  height: 50;
 }
 
 #i1 {
@@ -21,4 +14,12 @@ label {
 
 #i3 {
   background: orange;
+}
+
+#i4 {
+  background: purple;
+}
+
+#i5 {
+  background: green;
 }

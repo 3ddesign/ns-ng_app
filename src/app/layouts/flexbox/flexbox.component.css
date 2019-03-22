@@ -1,12 +1,11 @@
 /* Add mobile styles for the component here.  */
-StackLayout {
+FlexboxLayout {
   border-color: green;
   border-width: 5;
-  padding: 10;
   height: 300;
 }
 
-label {
+Label {
   width: 50;
   height: 50;
 }

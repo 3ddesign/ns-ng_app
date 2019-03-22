@@ -1,12 +1,11 @@
 /* Add mobile styles for the component here.  */
-StackLayout {
-  border-color: green;
+FlexboxLayout {
+  border-color: blue;
   border-width: 5;
-  padding: 10;
-  height: 300;
+  height: 200;
 }
 
-label {
+Label {
   width: 50;
   height: 50;
 }
@@ -16,9 +15,9 @@ label {
 }
 
 #i2 {
-  background: blue;
+  background: orange;
 }
 
 #i3 {
-  background: orange;
+  background: green;
 }
