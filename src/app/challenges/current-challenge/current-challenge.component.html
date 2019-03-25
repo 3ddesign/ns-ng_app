@@ -1,4 +1,13 @@
-<ScrollView>
+<ListView [items]="challengesList">
+  <ng-template> 
+    <GridLayout rows="40, auto">
+      <Label text="Item" row="0" col="0" rowSpan="2" columns="50,*"></Label>
+      <Label text="Item content" row="0" col="1"></Label>
+      <Label text="Item content row 2" row="0" col="1" ></Label>
+    </GridLayout>
+  </ng-template>
+</ListView>
+<!-- <ScrollView>
 <StackLayout>
   <Label
     class="title"
@@ -7,4 +16,4 @@
     *ngFor="let challenge of challengesList"
   ></Label>
 </StackLayout>
-</ScrollView>
+</ScrollView> -->
