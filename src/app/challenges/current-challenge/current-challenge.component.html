@@ -1,4 +1,8 @@
-<ListView [items]="challengesList" iosEstimatedRowHeight="65">
+<StackLayout>
+  <Label class="title" [text]="challengeTitle" horizontalAligment="center"></Label>
+</StackLayout>
+
+<!-- <ListView [items]="challengesList" iosEstimatedRowHeight="65">
   <ng-template let-challange="item" let-i="index"> 
     <GridLayout rows="40,20" columns="50,*">
       <Label [text]="i" row="0" col="0" rowSpan="2" ></Label>
@@ -6,4 +10,4 @@
       <Label text="Item content row 2" row="1" col="1" ></Label>
     </GridLayout>
   </ng-template>
-</ListView>
+</ListView> -->
