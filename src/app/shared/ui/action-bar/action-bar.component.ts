@@ -16,6 +16,14 @@ export class ActionBarComponent implements OnInit {
 
   constructor(private router: RouterExtensions, private page: Page) {}
 
+  get canGoBack() {
+    return this.router.canGoBack();
+  }
+
+  onGoBack() {
+    return this.router.backToPreviousPage();
+  }
+
   ngOnInit() {
   }
 
