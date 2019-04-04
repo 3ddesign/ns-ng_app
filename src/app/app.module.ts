@@ -9,6 +9,7 @@ import { AuthComponent } from './auth/auth.component';
 import { TodayComponent } from './challenges/today/today.component';
 import { AppRoutesModule } from './app-routing.module';
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
+import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-tabs.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -19,7 +20,7 @@ import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component'
 @NgModule({
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, NativeScriptFormsModule, AppRoutesModule],
-  declarations: [AppComponent, CurrentChallengeComponent, ChallengeEditComponent, AuthComponent, TodayComponent, ActionBarComponent],
+  declarations: [AppComponent, CurrentChallengeComponent, ChallengeEditComponent, AuthComponent, TodayComponent, ActionBarComponent, ChallengeTabsComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSignIn() {
-    this.router.navigate(['/today'], {clearHistory: true});
+    this.router.navigate(['/challenges'], {clearHistory: true});
   }
 
 }

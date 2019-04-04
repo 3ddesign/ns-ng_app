@@ -6,12 +6,14 @@ import { AuthComponent } from "./auth/auth.component";
 import { TodayComponent } from "./challenges/today/today.component";
 import { CurrentChallengeComponent } from "./challenges/current-challenge/current-challenge.component";
 import { ChallengeEditComponent } from "./challenges/challenge-edit/challenge-edit.component";
+import { ChallengeTabsComponent } from "./challenges/challenge-tabs/challenge-tabs.component";
 
 const routes: Routes = [
     { path: '', component: AuthComponent },
+    { path: 'challenges', component: ChallengeTabsComponent },
     { path: 'today', component: TodayComponent },
     { path: 'current-challange', component: CurrentChallengeComponent },
-    { path: 'edit-challange', component: ChallengeEditComponent },
+    { path: 'edit-challange', component: ChallengeEditComponent }
 ];
 
 @NgModule({
