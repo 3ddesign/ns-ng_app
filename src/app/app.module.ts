@@ -10,7 +10,7 @@ import { TodayComponent } from './challenges/today/today.component';
 import { AppRoutesModule } from './app-routing.module';
 import { ActionBarComponent } from './shared/ui/action-bar/action-bar.component';
 import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-tabs.component';
-
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives'
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -19,7 +19,7 @@ import { ChallengeTabsComponent } from './challenges/challenge-tabs/challenge-ta
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, NativeScriptFormsModule, AppRoutesModule],
+  imports: [NativeScriptModule, NativeScriptFormsModule, NativeScriptUISideDrawerModule, AppRoutesModule],
   declarations: [AppComponent, CurrentChallengeComponent, ChallengeEditComponent, AuthComponent, TodayComponent, ActionBarComponent, ChallengeTabsComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA]
