@@ -17,15 +17,19 @@ export class ActionBarComponent implements OnInit {
 
   constructor(private router: RouterExtensions, private page: Page) {}
 
+  ngOnInit() {
+  }
+
+  get android() {
+    return isAndroid;
+  }
+
   get canGoBack() {
     return this.router.canGoBack() && this.showBackButton;
   }
 
   onGoBack() {
     return this.router.backToPreviousPage();
-  }
-
-  ngOnInit() {
   }
 
   onLoaded() {
