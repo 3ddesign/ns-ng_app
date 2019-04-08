@@ -3,8 +3,8 @@
     text="Go Back"
     android.systemIcon="ic_menu_back"
     *ngIf="canGoBack" (tap)="onGoBack()"></NavigationButton>
-    <NavigationButton *ngIf="android" icon="res://menu_black"></NavigationButton>
-    <ActionItem *ngIf="!android" ios.position="left">
+    <NavigationButton *ngIf="android" icon="res://menu_black" (tap)="onToggleMenu()"></NavigationButton>
+    <ActionItem *ngIf="!android" ios.position="left" (tap)="onToggleMenu()">
       <Label text="MENU"></Label>
     </ActionItem>
   </ActionBar>
