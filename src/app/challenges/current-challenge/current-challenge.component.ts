@@ -11,6 +11,6 @@ export class CurrentChallengeComponent {
   constructor(private router: RouterExtensions) {}
 
   onEdit() {
-    this.router.navigate(['/edit-challange'], {transition: {name: 'slideLeft'}});
+    this.router.navigate(['/edit-challenge'], {transition: {name: 'slideLeft'}});
   }
 }
