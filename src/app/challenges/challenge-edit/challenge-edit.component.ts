@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PageRoute } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-challenge-edit',
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./challenge-edit.component.css'],
   moduleId: module.id
 })
-export class ChallengeEditComponent {
+export class ChallengeEditComponent implements OnInit {
+
+
+  constructor(private pageRoute: PageRoute) {
+
+  }
+
+  ngOnInit() {
+    this.pageRoute.activatedRoute.subscribe(activatedRoute => {
+      activatedRoute.paramMap.subscribe(paramMap => {
+        console.log(paramMap.get('mode'));
+      })
+
+    });
+  }
 
 }
