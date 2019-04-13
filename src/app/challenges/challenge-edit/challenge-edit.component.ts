@@ -8,6 +8,7 @@ import { PageRoute } from 'nativescript-angular/router';
   moduleId: module.id
 })
 export class ChallengeEditComponent implements OnInit {
+  isCreating: boolean;
 
 
   constructor(private pageRoute: PageRoute) {
@@ -17,6 +18,11 @@ export class ChallengeEditComponent implements OnInit {
   ngOnInit() {
     this.pageRoute.activatedRoute.subscribe(activatedRoute => {
       activatedRoute.paramMap.subscribe(paramMap => {
+        if (!paramMap.has('mode')) {
+          this.isCreating = true;
+        } else {
+          this.isCreating = paramMap.get('mode') !== 'edit';
+        }
         console.log(paramMap.get('mode'));
       })
 
