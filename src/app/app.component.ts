@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit, ChangeDetectorRef, ViewContainerRef } from '@angular/core';
 
 import { UIService } from './shared/ui.service';
 import { Subscription } from 'rxjs';
@@ -16,7 +16,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   private drawerSub: Subscription;
   private drawer: RadSideDrawer;
 
-  constructor(private uiService: UIService, private changeDetectionRef: ChangeDetectorRef) {
+  constructor(
+    private uiService: UIService, 
+    private changeDetectionRef: ChangeDetectorRef,
+    private vcRef: ViewContainerRef) {
 
   }
 
@@ -26,6 +29,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.drawer.toggleDrawerState();
       }
     })
+    this.uiService.setRootVCRef(this.vcRef);
   }
   onLogout() {
     this.uiService.toggleDrawer();
