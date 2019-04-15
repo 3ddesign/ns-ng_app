@@ -11,13 +11,18 @@ import { UIService } from '~/app/shared/ui.service';
   moduleId: module.id
 })
 export class CurrentChallengeComponent {
-  constructor(private modalDialog: ModalDialogService, 
+  constructor(private modalDialog: ModalDialogService,
     private iuService: UIService,
-    private vcRef: ViewContainerRef) {}
+    private vcRef: ViewContainerRef) { }
 
   onChangeStatus() {
-    this.modalDialog.showModal(DayModalComponent, { fullscreen: true,
-       viewContainerRef: this.iuService.getRootVCRef() ? this.iuService.getRootVCRef() : this.vcRef });
+    this.modalDialog.showModal(DayModalComponent, {
+      fullscreen: true,
+      viewContainerRef: this.iuService.getRootVCRef() ? this.iuService.getRootVCRef() : this.vcRef,
+      context: { date: new Date }
+    }).then((action: string) => {
+      console.log(action);
+    });
   }
 
 }
