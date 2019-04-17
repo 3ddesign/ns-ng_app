@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ChallengeEditComponent } from './challenge-edit.component';
@@ -11,7 +11,8 @@ import { NativeScriptRouterModule } from 'nativescript-angular/router';
     imports: [ NativeScriptCommonModule,
         SharedModule, 
         NativeScriptRouterModule.forChild([{ path: '', component: ChallengeEditComponent}])
-    ]
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class ChallengeEditModule {
 
