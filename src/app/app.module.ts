@@ -8,11 +8,6 @@ import { AppRoutesModule } from './app-routing.module';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component'
 import { SharedModule } from './shared/shared.module';
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
-// Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -22,7 +17,5 @@ import { SharedModule } from './shared/shared.module';
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [DayModalComponent]
 })
-/*
-Pass your application module to the bootstrapModule function located in main.ts to start your app
-*/
+
 export class AppModule {}

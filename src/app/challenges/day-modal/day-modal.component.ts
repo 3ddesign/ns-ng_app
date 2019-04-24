@@ -19,5 +19,4 @@ export class DayModalComponent implements OnInit {
   onHandleInput(action: string) {
     this.modalParams.closeCallback(action);
   }
-
 }
