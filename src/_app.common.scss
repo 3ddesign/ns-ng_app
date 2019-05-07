@@ -48,6 +48,13 @@ ActionBar {
   padding: 20;
 }
 
+.btn-flat {
+  background: transparent;
+  border-color: transparent;
+  border-width: 1;
+  color: $primary;
+}
+
 /* .btn {
   border-width: 1;
   width: 100%;
