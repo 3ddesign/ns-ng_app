@@ -1,22 +1,12 @@
 <ns-action-bar title="Current Challenge" [showBackButton]="false">
-  <ActionItem
-    ios.position="right"
-    android.position="actionBar"
-    nsRouterLink="/challenges/replace"
-    pageTransition="slideLeft"
-  >
-    <Label text="Replace"></Label
-  ></ActionItem>
-  <ActionItem
-    ios.position="right"
-    android.position="actionBar"
-    nsRouterLink="/challenges/edit"
-    pageTransition="slideLeft"
-  >
-    <Label text="Edit"></Label
-  ></ActionItem>
+  <ActionItem ios.position="right" android.position="actionBar" nsRouterLink="/challenges/replace"
+    pageTransition="slideLeft">
+    <Label text="Replace"></Label></ActionItem>
+  <ActionItem ios.position="right" android.position="actionBar" nsRouterLink="/challenges/edit"
+    pageTransition="slideLeft">
+    <Label text="Edit"></Label></ActionItem>
 </ns-action-bar>
-<StackLayout>
-  <Label class="title" text="The current challenge" horizontalAligment="center"></Label>
-  <Button ios:text="New status" android:text="Change status" (tap)="onChangeStatus()"></Button>
-</StackLayout>
+<FlexboxLayout class="page">
+  <Label class="h1 text-center" text="Title"></Label>
+  <Label class="body text-center" text="descr"></Label>
+</FlexboxLayout>
