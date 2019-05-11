@@ -1,0 +1,25 @@
+@import '../../../theme/colors';
+@import '~nativescript-theme-core/scss/light';
+
+FlexboxLayout {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20;
+}
+
+.btn {
+    width: 300px;
+}
+
+.btn-success {
+    background: $success;
+    border-color: $success;
+    color: $white;
+}
+
+.btn-fail {
+    background: $fail;
+    border-color: $fail;
+    color: $white;
+}

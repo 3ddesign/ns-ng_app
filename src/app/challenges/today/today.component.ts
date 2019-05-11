@@ -13,4 +13,8 @@ export class TodayComponent implements OnInit {
   ngOnInit() {
   }
 
+  onActionSelected(action: 'completed' | 'failed' | 'cancel') {
+    console.log(action);
+  }
+
 }

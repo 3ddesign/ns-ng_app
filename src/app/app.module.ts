@@ -8,10 +8,11 @@ import { AppRoutesModule } from './app-routing.module';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component'
 import { SharedModule } from './shared/shared.module';
+import { ChallengeActionsModule } from './challenges/challenge-actions/challenge-actions.module';
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [ SharedModule, NativeScriptModule, NativeScriptFormsModule, NativeScriptUISideDrawerModule, AppRoutesModule],
+  imports: [ SharedModule, NativeScriptModule, NativeScriptFormsModule, NativeScriptUISideDrawerModule, AppRoutesModule, ChallengeActionsModule],
   declarations: [AppComponent, AuthComponent, DayModalComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
