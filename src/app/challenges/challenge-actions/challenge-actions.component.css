@@ -1,0 +1,19 @@
+FlexboxLayout {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20;
+}
+.btn {
+  width: 300px;
+}
+.btn-success {
+  background: green;
+  border-color: green;
+  color: #fff;
+}
+.btn-fail {
+  background: red;
+  border-color: red;
+  color: #fff;
+}
