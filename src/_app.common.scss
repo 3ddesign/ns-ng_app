@@ -1,11 +1,11 @@
 /* @import '~nativescript-theme-core/css/core.light.css'; */
-@import '~nativescript-theme-core/scss/light';
+@import "~nativescript-theme-core/scss/light";
 
-@import './theme/colors';
+@import "./theme/colors";
 
 $btn-color: $primary;
 
-@import '~nativescript-theme-core/scss/index';
+@import "~nativescript-theme-core/scss/index";
 
 ActionBar {
   background: $primary;
@@ -24,8 +24,13 @@ ActionBar {
     .label {
       color: $primary;
       font-weight: bold;
-      font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
+      font-family: "Oswald", "Oswald-Regular", "Oswald-Bold";
     }
+
+    .label.invalid {
+      color: red;
+    }
+
     .input {
       border-bottom-width: 2;
       border-color: $primary;
@@ -35,13 +40,13 @@ ActionBar {
 }
 
 .h1 {
-  font-family: 'Oswald', 'Oswald-Regular', 'Oswald-Bold';
+  font-family: "Oswald", "Oswald-Regular", "Oswald-Bold";
   font-weight: bold;
   color: $primary;
 }
 
 .fa {
-  font-family: 'FontAwesome', 'Font-Awesome';
+  font-family: "FontAwesome", "Font-Awesome";
 }
 
 // .form-control {
@@ -70,6 +75,11 @@ ActionBar {
   border-color: transparent;
   border-width: 1;
   color: $primary;
+}
+
+.ng-invalid.ng-touched {
+  border-bottom-color: red;
+  color: red;
 }
 
 /* .btn {
