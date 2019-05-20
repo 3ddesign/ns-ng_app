@@ -10,5 +10,5 @@
     <TextView class="input" returnKeyType="done" required ngModel #descriptionsCtrl="ngModel"></TextView>
     <Label *ngIf="!titleCtrl.valid && titleCtrl.touched" text="Enter a valid description "></Label>
   </StackLayout>
-  <Button class="btn btn-primary" text="Save" [isEnabled]="titleCtrl.valid && descriptionsCtrl.valid"></Button>
+  <Button (tap)="onSubmit(titleCtrl.value, descriptionsCtrl.value)" class="btn btn-primary" text="Save" [isEnabled]="titleCtrl.valid && descriptionsCtrl.valid"></Button>
 </FlexboxLayout>
