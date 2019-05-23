@@ -35,4 +35,14 @@ export class AuthComponent implements OnInit {
     this.router.navigate(['/challenges'], { clearHistory: true });
   }
 
+  onSubmit() {
+    this.emailEl.nativeElement.focus();
+    this.passwordEl.nativeElement.focus();
+    this.passwordEl.nativeElement.dismissSoftInput();
+
+   const email = this.form.get('email').value;
+   const password = this.form.get('password').value;
+   console.log(email, password);
+  }
+
 }
