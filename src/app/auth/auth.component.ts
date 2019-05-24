@@ -29,10 +29,24 @@ export class AuthComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(6)]
       })
     });
+
+    this.form.get('email').statusChanges.subscribe(status => {
+      this.emailControlIsValid = status === 'VALID';
+    });
+
+    this.form.get('password').statusChanges.subscribe(status => {
+      this.passwordControlIsValid = status === 'VALID';
+    });
   }
 
   onSignIn() {
     this.router.navigate(['/challenges'], { clearHistory: true });
+  }
+
+  onDone() {
+    this.emailEl.nativeElement.focus();
+    this.passwordEl.nativeElement.focus();
+    this.passwordEl.nativeElement.dismissSoftInput();
   }
 
   onSubmit() {

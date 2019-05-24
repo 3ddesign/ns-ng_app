@@ -8,7 +8,7 @@
     <Label
       class="label"
       text="E-Mail"
-      [ngClass]="{ invalid: false }"
+      [ngClass]="{ invalid: !emailControlIsValid }"
     ></Label>
     <TextField
       class="input"
@@ -20,15 +20,15 @@
       #emailEl
     ></TextField>
     <Label
-      *ngIf="false"
-      text="Please enter a valid title."
+      *ngIf="!emailControlIsValid"
+      text="Please enter a valid email."
     ></Label>
   </StackLayout>
   <StackLayout class="input-field">
     <Label
       class="label"
       text="Password"
-      [ngClass]="{ invalid: false }"
+      [ngClass]="{ invalid: !passwordControlIsValid }"
     ></Label>
     <TextField
       class="input"
@@ -38,16 +38,18 @@
       [secure]="true"
       hint="Min 6 characters"
       formControlName="password"
+      (returnPress)="onDone()"
       #passwordEl
     ></TextField>
     <Label
-      *ngIf="false"
-      text="Please enter a valid description."
+      *ngIf="!passwordControlIsValid"
+      text="Please enter a valid password."
     ></Label>
   </StackLayout>
   <Button
     text="Login"
     class="btn btn-primary btn-rounded-lg"
     (tap)="onSubmit()"
+    [isEnabled]="form.valid"
   ></Button>
 </StackLayout>
