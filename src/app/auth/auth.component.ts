@@ -11,6 +11,7 @@ import { TextField } from 'tns-core-modules/ui/text-field';
 })
 export class AuthComponent implements OnInit {
   form: FormGroup;
+  isLogin = true;
   emailControlIsValid = true;
   passwordControlIsValid = true;
   @ViewChild('passwordEl') passwordEl: ElementRef<TextField>;
@@ -54,9 +55,25 @@ export class AuthComponent implements OnInit {
     this.passwordEl.nativeElement.focus();
     this.passwordEl.nativeElement.dismissSoftInput();
 
-   const email = this.form.get('email').value;
-   const password = this.form.get('password').value;
-   console.log(email, password);
+    if (!this.form.value) {
+      return;
+    }
+
+    const email = this.form.get('email').value;
+    const password = this.form.get('password').value;
+    this.form.reset();
+    this.emailControlIsValid = true;
+    this.passwordControlIsValid = true;
+    if (this.isLogin) {
+      console.log('Logging in');
+      'ligin'
+    } else {
+      console.log('Signing up');
+    }
+  }
+
+  onSwitch() {
+    this.isLogin = !this.isLogin;
   }
 
 }
