@@ -25,15 +25,6 @@ export class CurrentChallengeComponent implements OnInit {
     private vcRef: ViewContainerRef) { }
 
   ngOnInit() {
-    this.currentMonth  = new Date().getMonth();
-    this.currentYear  = new Date().getFullYear();
-    const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate(); 
-
-    for (let i = 1; i < daysInMonth + 1; i++) {
-      const date = new Date(this.currentMonth, this.currentMonth, i);
-      const dayInWeek = date.getDay();
-      this.days.push({ dayInMonth: i, dayInWeek: dayInWeek });
-    }
   } 
 
   getRow(index: number, day: { dayInMonth: number, dayInWeek: number }) {
