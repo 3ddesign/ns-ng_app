@@ -1,3 +1,5 @@
-GridLayout {
-  // background-image: url("res:summit");
+.page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
