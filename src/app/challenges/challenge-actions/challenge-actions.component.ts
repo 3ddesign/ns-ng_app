@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { DayStatus } from '../day.model';
 
 @Component({
   selector: 'ns-challenge-actions',
@@ -7,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   moduleId: module.id,
 })
 export class ChallengeActionsComponent implements OnInit {
-  @Output() actionSelect = new EventEmitter<'completed' | 'failed' | 'cancel'>();
+  @Output() actionSelect = new EventEmitter<DayStatus>();
   @Input() cancelText = 'Cancel';
 
   constructor() { }
@@ -16,7 +17,13 @@ export class ChallengeActionsComponent implements OnInit {
   }
 
   onAction(action: 'completed' | 'failed' | 'cancel') {
-    this.actionSelect.emit(action);
+    let status = DayStatus.Open;
+    if (action === 'completed') {
+      status = DayStatus.Completed;
+    } else if (action === 'failed') {
+      status = DayStatus.Failed;
+    }
+    this.actionSelect.emit(status);
   }
 
 }

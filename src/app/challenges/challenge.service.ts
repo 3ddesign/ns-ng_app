@@ -34,6 +34,7 @@ export class ChallangeService {
             const dayIndex = challenge.days.findIndex(day => day.dayInMonth === dayInMonth)
             challenge.days[dayIndex].status = status;
             this._currentChallange.next(challenge);
+            console.log(challenge.days[dayIndex]);
         });
     }
 }
