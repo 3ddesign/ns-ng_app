@@ -17,6 +17,22 @@ FlexboxLayout {
   font-size: 30;
 }
 
+.animate-button {
+  animation-name: slide-up;
+  animation-iteration-count: 1; 
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+  form {
+    transform: translateY(30);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .btn-success {
   background: $success;
   border-color: $success;
