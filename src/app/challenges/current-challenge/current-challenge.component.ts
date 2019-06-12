@@ -7,7 +7,7 @@ import { DayModalComponent } from '../day-modal/day-modal.component';
 import { UIService } from '~/app/shared/ui.service';
 import { ChallangeService } from '../challenge.service';
 import { Challenge } from '../challenge.model';
-import { Day } from '../day.model';
+import { Day, DayStatus } from '../day.model';
 
 
 @Component({
@@ -55,8 +55,8 @@ export class CurrentChallengeComponent implements OnInit, OnDestroy {
       fullscreen: true,
       viewContainerRef: this.iuService.getRootVCRef() ? this.iuService.getRootVCRef() : this.vcRef,
       context: { date: day.date }
-    }).then((action: string) => {
-      console.log(action);
+    }).then((status: DayStatus) => {
+      this.challengeService.updateDay(day.dayInMonth, status);
     });
   }
 
