@@ -28,6 +28,16 @@ export class TodayComponent implements OnInit, OnDestroy {
     this.challengeService.updateDay(this.currentDay.dayInMonth, action);
   }
 
+  getActionName() {
+    if (this.currentDay.status === DayStatus.Completed) {
+      return 'complete';
+    }
+    if (this.currentDay.status === DayStatus.Failed) {
+      return 'failed';
+    }
+    return null;
+  }
+
   ngOnDestroy() {
     if (this.currentChallengeSub) {
       this.currentChallengeSub.unsubscribe();

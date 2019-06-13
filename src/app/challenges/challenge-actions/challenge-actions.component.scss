@@ -1,46 +1,55 @@
-@import "../../../theme/colors";
-@import "~nativescript-theme-core/scss/light";
+/* Add mobile styles for the component here.  */
+@import '~nativescript-theme-core/scss/light';
+@import '../../../theme/colors';
 
 FlexboxLayout {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20;
 }
 
 .btn {
-  width: 300px;
+  width: 300;
+}
+
+.btn-success {
+  background-color: $success;
+  border-color: $success;
+  border-width: 1;
+  color: $white;
+}
+
+.btn-fail {
+  background-color: $fail;
+  border-color: $fail;
+  border-width: 1;
+  color: $white;
+}
+
+.btn-success:disabled,
+.btn-fail:disabled {
+  background-color: #ccc;
+  color: #777777;
+  border-color: #ccc;
 }
 
 .btn-alt {
-  margin-top: 10;
   font-size: 30;
+  margin-top: 15;
 }
 
 .animate-button {
   animation-name: slide-up;
-  animation-iteration-count: 1; 
+  animation-iteration-count: 1;
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
 }
 
 @keyframes slide-up {
-  form {
+  from {
     transform: translateY(30);
   }
   to {
     transform: translateY(0);
   }
-}
-
-.btn-success {
-  background: $success;
-  border-color: $success;
-  color: $white;
-}
-
-.btn-fail {
-  background: $fail;
-  border-color: $fail;
-  color: $white;
 }
