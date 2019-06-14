@@ -12,7 +12,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   @Input() cancelText = 'Cancel';
   @Input() chosen: 'completed' | 'failed' = null;
   action: 'completed' | 'failed' = null;
-  isDone = false;
+  done = false;
 
   constructor() { }
 
@@ -26,7 +26,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   }
 
   onAction(action: 'completed' | 'failed' | 'cancel') {
-    this.isDone = true;
+    this.done = true;
     let status = DayStatus.Open;
     if (action === 'completed') {
       this.action = 'completed'
@@ -36,7 +36,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
       status = DayStatus.Failed;
     } else if (action === 'cancel') {
       this.action = null;
-      this.isDone = false;
+      this.done = false;
     }
     this.actionSelect.emit(status);
   }
