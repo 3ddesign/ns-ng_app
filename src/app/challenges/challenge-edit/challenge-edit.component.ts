@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageRoute, RouterExtensions } from 'nativescript-angular/router';
 import { ChallangeService } from '../challenge.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'ns-challenge-edit',
@@ -10,11 +11,13 @@ import { ChallangeService } from '../challenge.service';
 })
 export class ChallengeEditComponent implements OnInit {
   isCreating: boolean;
+  title = '';
+  description = '';
 
 
   constructor(private pageRoute: PageRoute,
-     private router: RouterExtensions,
-     private challengeService: ChallangeService) {
+    private router: RouterExtensions,
+    private challengeService: ChallangeService) {
 
   }
 
@@ -26,13 +29,22 @@ export class ChallengeEditComponent implements OnInit {
         } else {
           this.isCreating = paramMap.get('mode') !== 'edit';
         }
-        console.log(paramMap.get('mode'));
+        if (!this.isCreating) {
+          this.challengeService.currentChallange.pipe(take(1)).subscribe(challange => {
+            this.title = challange.title;
+            this.description = challange.description;
+          });
+        }
       })
 
     });
   }
   onSubmit(title: string, description: string) {
-    this.challengeService.createNewChallange(title, description);
+    if (this.isCreating) {
+      this.challengeService.createNewChallange(title, description);
+    } else {
+      this.challengeService.updateChallenge(title, description);
+    }
     this.router.backToPreviousPage();
   }
 
