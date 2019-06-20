@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
@@ -13,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [ SharedModule, NativeScriptModule, ReactiveFormsModule, NativeScriptFormsModule, NativeScriptUISideDrawerModule, AppRoutesModule, ChallengeActionsModule],
+  imports: [ SharedModule, NativeScriptHttpClientModule, NativeScriptModule, ReactiveFormsModule, NativeScriptFormsModule, NativeScriptUISideDrawerModule, AppRoutesModule, ChallengeActionsModule],
   declarations: [AppComponent, AuthComponent, DayModalComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],

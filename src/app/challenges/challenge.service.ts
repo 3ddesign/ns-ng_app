@@ -5,10 +5,15 @@ import { Challenge } from './challenge.model'
 import { DayStatus } from './day.model';
 
 import { take } from 'rxjs/operators'
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class ChallangeService {
     private _currentChallange = new BehaviorSubject<Challenge>(null);
+
+    constructor(private http: HttpClient) {
+
+    }
 
     get currentChallange() {
         return this._currentChallange.asObservable();
@@ -23,14 +28,17 @@ export class ChallangeService {
         );
 
         // TODO: Save to server
+        this.http.put('https://ns-ng-79848.firebaseio.com/challenge.json', newChallenge).subscribe(res => {
+            console.log(res);
+        });
         this._currentChallange.next(newChallenge);
     }
 
-    updateChallenge (title: string, description: string) {
+    updateChallenge(title: string, description: string) {
         this.currentChallange.pipe(take(1)).subscribe(challenge => {
-         const updateChallenge = new Challenge(title, description, challenge.year, challenge.month, challenge.days);
-        // TODO: Save to server
-        this._currentChallange.next(updateChallenge);
+            const updateChallenge = new Challenge(title, description, challenge.year, challenge.month, challenge.days);
+            // TODO: Save to server
+            this._currentChallange.next(updateChallenge);
         });
     }
 
