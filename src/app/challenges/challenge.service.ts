@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { Challenge } from './challenge.model'
-import { DayStatus } from './day.model';
+import { DayStatus, Day } from './day.model';
 
 import { take } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
@@ -17,6 +17,14 @@ export class ChallangeService {
 
     get currentChallange() {
         return this._currentChallange.asObservable();
+    }
+
+    fetchCurrentChallange() {
+        return this.http.get<{title: string;
+            description: string; 
+            month: number;
+            year: number;
+            _days: Day[] }>('https://ns-ng-79848.firebaseio.com/challenge.json');
     }
 
     createNewChallange(title: string, description: string) {
