@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Challenge } from './challenge.model'
 import { DayStatus, Day } from './day.model';
 
-import { take } from 'rxjs/operators'
+import { take, tap } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -20,11 +20,25 @@ export class ChallangeService {
     }
 
     fetchCurrentChallange() {
-        return this.http.get<{title: string;
-            description: string; 
+        return this.http.get<{
+            title: string;
+            description: string;
             month: number;
             year: number;
-            _days: Day[] }>('https://ns-ng-79848.firebaseio.com/challenge.json');
+            _days: Day[]
+        }>('https://ns-ng-79848.firebaseio.com/challenge.json')
+            .pipe(tap(resData => {
+                if (resData) {
+                    const loadedChallenge = new Challenge(
+                        resData.title,
+                        resData.description,
+                        resData.year,
+                        resData.month,
+                        resData._days,
+                    );
+                    this._currentChallange.next(loadedChallenge);
+                }
+            }));
     }
 
     createNewChallange(title: string, description: string) {
