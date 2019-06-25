@@ -57,11 +57,17 @@ export class ChallangeService {
     }
 
     updateChallenge(title: string, description: string) {
-        this.currentChallange.pipe(take(1)).subscribe(challenge => {
-            const updateChallenge = new Challenge(title, description, challenge.year, challenge.month, challenge.days);
-            // TODO: Save to server
-            this._currentChallange.next(updateChallenge);
-        });
+        this._currentChallange.pipe(take(1)).subscribe(challenge => {
+            const updatedChallenge = new Challenge(
+              title,
+              description,
+              challenge.year,
+              challenge.month,
+              challenge.days
+            );
+            // Send to a server
+            this._currentChallenge.next(updatedChallenge);
+          });
     }
 
     updateDay(dayInMonth: number, status: DayStatus) {
