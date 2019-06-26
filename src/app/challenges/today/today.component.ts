@@ -27,7 +27,7 @@ export class TodayComponent implements OnInit, OnDestroy {
   }
 
   onActionSelected(action: DayStatus) {
-    this.challengeService.updateChallenge(this.currentDay.dayInMonth, action);
+    this.challengeService.updateDay(this.currentDay.dayInMonth, action);
   }
 
   getActionName() {

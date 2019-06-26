@@ -47,8 +47,7 @@ export class ChallangeService {
             description,
             new Date().getFullYear(),
             new Date().getMonth()
-        );
-
+          );
         // TODO: Save to server
         this.http.put('https://ns-ng-79848.firebaseio.com/challenge.json', newChallenge).subscribe(res => {
             console.log(res);
@@ -66,7 +65,7 @@ export class ChallangeService {
               challenge.days
             );
             // Send to a server
-            this._currentChallenge.next(updatedChallenge);
+            this._currentChallange.next(updatedChallenge);
           });
     }
 
@@ -81,7 +80,6 @@ export class ChallangeService {
             console.log(challenge.days[dayIndex]);
         });
     }
-
 
 }
 
