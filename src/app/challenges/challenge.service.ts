@@ -20,25 +20,29 @@ export class ChallangeService {
     }
 
     fetchCurrentChallange() {
-        return this.http.get<{
-            title: string;
-            description: string;
-            month: number;
-            year: number;
-            _days: Day[]
-        }>('https://ns-ng-79848.firebaseio.com/challenge.json')
-            .pipe(tap(resData => {
-                if (resData) {
-                    const loadedChallenge = new Challenge(
-                        resData.title,
-                        resData.description,
-                        resData.year,
-                        resData.month,
-                        resData._days,
-                    );
-                    this._currentChallange.next(loadedChallenge);
-                }
-            }));
+        return this._currentChallange
+    // return this.http
+    //   .get<{
+    //     title: string;
+    //     description: string;
+    //     month: number;
+    //     year: number;
+    //     _days: Day[];
+    //   }>('https://ns-ng-79848.firebaseio.com/challenge.json')
+    //   .pipe(
+    //     tap(resData => {
+    //       if (resData) {
+    //         const loadedChallenge = new Challenge(
+    //           resData.title,
+    //           resData.description,
+    //           resData.year,
+    //           resData.month,
+    //           resData._days
+    //         );
+    //         this._currentChallange.next(loadedChallenge);
+    //       }
+    //     })
+    //   );
     }
 
     createNewChallange(title: string, description: string) {
@@ -48,11 +52,12 @@ export class ChallangeService {
             new Date().getFullYear(),
             new Date().getMonth()
           );
-        // TODO: Save to server
-        this.http.put('https://ns-ng-79848.firebaseio.com/challenge.json', newChallenge).subscribe(res => {
-            console.log(res);
-        });
-        this._currentChallange.next(newChallenge);
+          this.http
+            .put('https://ns-ng-79848.firebaseio.com/challenge.json', newChallenge)
+            .subscribe(res => {
+            //   console.log(res);
+            });
+          this._currentChallange.next(newChallenge);
     }
 
     updateChallenge(title: string, description: string) {

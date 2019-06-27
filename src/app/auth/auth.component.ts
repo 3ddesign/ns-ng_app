@@ -20,6 +20,9 @@ export class AuthComponent implements OnInit {
   constructor(private router: RouterExtensions) { }
 
   ngOnInit() {
+    //TODO: remove after debug:
+    this.router.navigate(['/challenges']);
+
     this.form = new FormGroup({
       email: new FormControl(null, {
         updateOn: 'blur',
