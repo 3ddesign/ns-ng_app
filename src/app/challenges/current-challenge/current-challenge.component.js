@@ -35,7 +35,7 @@ var CurrentChallengeComponent = /** @class */ (function () {
             viewContainerRef: this.iuService.getRootVCRef() ? this.iuService.getRootVCRef() : this.vcRef,
             context: { date: new Date }
         }).then(function (action) {
-            console.log(action);
+            // console.log(action);
         });
     };
     CurrentChallengeComponent = __decorate([

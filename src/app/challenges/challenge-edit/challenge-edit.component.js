@@ -16,7 +16,7 @@ var ChallengeEditComponent = /** @class */ (function () {
                 else {
                     _this.isCreating = paramMap.get('mode') !== 'edit';
                 }
-                console.log(paramMap.get('mode'));
+                // console.log(paramMap.get('mode'));
             });
         });
     };

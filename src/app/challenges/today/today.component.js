@@ -7,7 +7,7 @@ var TodayComponent = /** @class */ (function () {
     TodayComponent.prototype.ngOnInit = function () {
     };
     TodayComponent.prototype.onActionSelected = function (action) {
-        console.log(action);
+        // console.log(action);
     };
     TodayComponent = __decorate([
         core_1.Component({

@@ -19,31 +19,30 @@ export class ChallangeService {
         return this._currentChallange.asObservable();
     }
 
-    fetchCurrentChallange() {
-        return this._currentChallange
-    // return this.http
-    //   .get<{
-    //     title: string;
-    //     description: string;
-    //     month: number;
-    //     year: number;
-    //     _days: Day[];
-    //   }>('https://ns-ng-79848.firebaseio.com/challenge.json')
-    //   .pipe(
-    //     tap(resData => {
-    //       if (resData) {
-    //         const loadedChallenge = new Challenge(
-    //           resData.title,
-    //           resData.description,
-    //           resData.year,
-    //           resData.month,
-    //           resData._days
-    //         );
-    //         this._currentChallange.next(loadedChallenge);
-    //       }
-    //     })
-    //   );
-    }
+    fetchCurrentChallenge() {
+        return this.http
+          .get<{
+            title: string;
+            description: string;
+            month: number;
+            year: number;
+            _days: Day[];
+          }>('https://ns-ng-79848.firebaseio.com/challenge.json')
+          .pipe(
+            tap(resData => {
+              if (resData) {
+                const loadedChallenge = new Challenge(
+                  resData.title,
+                  resData.description,
+                  resData.year,
+                  resData.month,
+                  resData._days
+                );
+                this._currentChallange.next(loadedChallenge);
+              }
+            })
+          );
+      }
 
     createNewChallange(title: string, description: string) {
         const newChallenge = new Challenge(

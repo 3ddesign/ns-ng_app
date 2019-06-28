@@ -22,25 +22,31 @@ export class ChallengeTabsComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.challengeService.fetchCurrentChallange().subscribe(res => {
-      console.log('fetching challenge');
-      this.isLoading = false;
-      this.loadTabRoutes();
-    }, err => {
-      this.isLoading = false;
-      this.loadTabRoutes();
-      console.log(err);
-    });
+    this.challengeService.fetchCurrentChallenge().subscribe(
+      res => {
+        console.log('Fetched challenge...');
+        this.isLoading = false;
+        this.loadTabRoutes();
+      },
+      err => {
+        console.log(err);
+        this.isLoading = false;
+        this.loadTabRoutes();
+      }
+    );
 
     this.page.actionBarHidden = true;
   }
-
+  
   private loadTabRoutes() {
     setTimeout(() => {
       this.router.navigate(
         [
           {
-            outlets: { currentChallenge: ['current-challenge'], today: ['today'] }
+            outlets: {
+              currentChallenge: ['current-challenge'],
+              today: ['today']
+            }
           }
         ],
         {
