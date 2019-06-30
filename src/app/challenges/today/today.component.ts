@@ -32,10 +32,10 @@ export class TodayComponent implements OnInit, OnDestroy {
 
   getActionName() {
     if (this.currentDay.status === DayStatus.Completed) {
-      return 'complete';
+      return 'completed';
     }
     if (this.currentDay.status === DayStatus.Failed) {
-      return 'fail';
+      return 'failed';
     }
     return null;
   }

@@ -11,6 +11,7 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   @Output() actionSelect = new EventEmitter<DayStatus>();
   @Input() cancelText = 'Cancel';
   @Input() chosen: 'completed' | 'failed' = null;
+  @Input() startDone = false;
   action: 'completed' | 'failed' = null;
   done = false;
 
@@ -19,11 +20,19 @@ export class ChallengeActionsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.chosen) {
       this.action = changes.chosen.currentValue;
-
       if (changes.chosen.currentValue === null) {
         this.done = false;
+      } else {
+        this.done = true;
       }
     }
+
+    // TODO: insert it after fixing bug with loading in today component:
+    // if (changes.startDone) {
+    //   if (changes.startDone.currentValue) {
+    //     this.done = true;
+    //   }
+    // }
   }
 
   ngOnInit() {
