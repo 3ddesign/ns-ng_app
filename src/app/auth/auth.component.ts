@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   form: FormGroup;
   isLogin = true;
+  isLoading = false;
   emailControlIsValid = true;
   passwordControlIsValid = true;
   @ViewChild('passwordEl') passwordEl: ElementRef<TextField>;
@@ -62,13 +63,26 @@ export class AuthComponent implements OnInit {
     this.form.reset();
     this.emailControlIsValid = true;
     this.passwordControlIsValid = true;
+    this.isLoading = true;
     if (this.isLogin) {
       // console.log('Logging in');
+      this.authService.login(email, password).subscribe(res => {
+        this.router.navigate(['/challenges']);
+        this.isLoading = false;
+      }, err => {
+        console.log(err);
+        this.isLoading = false;
+      });
     } else {
       // console.log('Signing up');
-      this.authService.signUp(email, password);
+      this.authService.signUp(email, password).subscribe(res => {
+        this.router.navigate(['/challenges']);
+        this.isLoading = false;
+      }, err => {
+        console.log(err);
+        this.isLoading = false;
+      });
     }
-    this.router.navigate(['/challenges']);
   }
 
   onSwitch() {
