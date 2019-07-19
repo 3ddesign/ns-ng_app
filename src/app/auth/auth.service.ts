@@ -34,6 +34,10 @@ export class AuthService {
     }));
   }
 
+  get user() {
+    return this._user.asObservable();
+  }
+
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>(
       `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${FIREBASE_API_KEY}`,
