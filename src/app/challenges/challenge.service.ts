@@ -57,7 +57,7 @@ export class ChallangeService {
       new Date().getFullYear(),
       new Date().getMonth()
     );
-    this.seveToServer(newChallenge);
+    this.saveToServer(newChallenge);
     this._currentChallange.next(newChallenge);
   }
 
@@ -70,7 +70,7 @@ export class ChallangeService {
         challenge.month,
         challenge.days
       );
-      this.seveToServer(updatedChallenge);
+      this.saveToServer(updatedChallenge);
       this._currentChallange.next(updatedChallenge);
     });
   }
@@ -83,15 +83,24 @@ export class ChallangeService {
       const dayIndex = challenge.days.findIndex(day => day.dayInMonth === dayInMonth)
       challenge.days[dayIndex].status = status;
       this._currentChallange.next(challenge);
-      this.seveToServer(challenge);
+      this.saveToServer(challenge);
     });
   }
 
-  private seveToServer(challenge: Challenge) {
-    this.http
-      .put('https://ns-ng-79848.firebaseio.com/challenge.json', challenge)
+  private saveToServer(challenge: Challenge) {
+    this.authService.user
+      .pipe(
+        switchMap(currentUser => {
+          return this.http.put(
+            `https://ns-ng-79848.firebaseio.com/challenge.json?auth=${
+              currentUser.token
+            }`,
+            challenge
+          );
+        })
+      )
       .subscribe(res => {
-        //   console.log(res);
+        console.log(res);
       });
   }
 
