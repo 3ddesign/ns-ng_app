@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { alert } from 'tns-core-modules/ui/dialogs'
+import { RouterExtensions } from 'nativescript-angular/router';
 
 import { User, AuthResponseData } from './user.model';
 
@@ -12,7 +13,7 @@ const FIREBASE_API_KEY = 'AIzaSyDW_g5fH3LG1oQv_MLhYIOfjdvAD-UG84U';
 export class AuthService {
   private _user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: RouterExtensions) {}
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
@@ -56,6 +57,12 @@ export class AuthService {
         );
       }
     }));
+  }
+
+  logout() {
+    this.router.navigate(['/'], { clearHistory: true});
+
+    this._user.next(null);
   }
 
   private handleLogin(
