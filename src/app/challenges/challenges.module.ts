@@ -10,7 +10,7 @@ import { ChallengeActionsModule } from './challenge-actions/challenge-actions.mo
 
 @NgModule({
     declarations: [ChallengeTabsComponent, CurrentChallengeComponent, TodayComponent],
-    imports: [ SharedModule,NativeScriptCommonModule, ChallengesRoutingModule, ChallengeActionsModule],
+    imports: [SharedModule, NativeScriptCommonModule, ChallengesRoutingModule, ChallengeActionsModule],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class ChallengesModule {
