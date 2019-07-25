@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 
 import { Challenge } from './challenge.model'
 import { DayStatus, Day } from './day.model';
@@ -22,9 +22,10 @@ export class ChallangeService {
 
   fetchCurrentChallenge() {
     return this.authService.user.pipe(
+      take(1),
       switchMap(currentUser => {
         if (!currentUser || !currentUser.isAuth) {
-          return;
+          return of(null);
         }
         return this.http.get<{
           title: string;
@@ -93,9 +94,10 @@ export class ChallangeService {
   private saveToServer(challenge: Challenge) {
     this.authService.user
       .pipe(
+        take(1),
         switchMap(currentUser => {
           if (!currentUser || !currentUser.isAuth) {
-            return;
+            return of(null);
           }
           return this.http.put(
             `https://ns-ng-79848.firebaseio.com/challenge.json?auth=${
