@@ -6,10 +6,11 @@ import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
-  { path: '', component: AuthComponent },
+  { path: 'auth', component: AuthComponent },
   {
     path: 'challenges', loadChildren: '~/app/challenges/challenges.module#ChallengesModule'
-  }
+  },
+  { path: '', redirectTo: '/challenges', pathMatch: 'full' }
 ];
 
 @NgModule({
