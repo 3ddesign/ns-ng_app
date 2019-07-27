@@ -79,7 +79,7 @@ export class AuthService {
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
-    this.router.navigate(['/'], { clearHistory: true });
+    this.router.navigate(['/auth'], { clearHistory: true });
   }
 
   autoLogin() {
@@ -103,7 +103,6 @@ export class AuthService {
     if (loadedUser.isAuth) {
       this._user.next(loadedUser);
       this.autoLogout(loadedUser.timeToExpiry);
-      this.router.navigate(['/challenges'], { clearHistory: true });
       return of(true);
     }
     return of(false);
