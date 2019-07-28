@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { BehaviorSubject, of, Subscription } from 'rxjs';
 
 import { Challenge } from './challenge.model'
 import { DayStatus, Day } from './day.model';
@@ -9,11 +9,17 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
-export class ChallangeService {
+export class ChallangeService implements OnDestroy  {
   private _currentChallange = new BehaviorSubject<Challenge>(null);
+  private userSub: Subscription;
+
 
   constructor(private http: HttpClient, private authService: AuthService) {
-
+    this.userSub = this.authService.user.subscribe(user => {
+      if (!user) {
+        this._currentChallange.next(null);
+      }
+    });
   }
 
   get currentChallange() {
@@ -34,7 +40,7 @@ export class ChallangeService {
           year: number;
           _days: Day[];
         }>(
-          `https://ns-ng-79848.firebaseio.com/challenge.json?auth=${
+          `https://ns-ng-79848.firebaseio.com/${currentUser.id}.json?auth=${
             currentUser.token
           }`
         );
@@ -100,7 +106,7 @@ export class ChallangeService {
             return of(null);
           }
           return this.http.put(
-            `https://ns-ng-79848.firebaseio.com/challenge.json?auth=${
+            `https://ns-ng-79848.firebaseio.com/${currentUser.id}.json?auth=${
               currentUser.token
             }`,
             challenge
@@ -110,6 +116,10 @@ export class ChallangeService {
       .subscribe(res => {
         console.log(res);
       });
+  }
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
   }
 
 }
