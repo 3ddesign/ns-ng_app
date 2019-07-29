@@ -17,7 +17,7 @@
   <ns-challenge-actions
     (actionSelect)="onActionSelected($event)"
     [chosen]="getActionName()"
-    <!-- [startDone]="getActionName() === 'completed' || getActionName() === 'failed'" -->
+    [startDone]="getActionName() === 'completed' || getActionName() === 'failed'"
     cancelText="Reset"
   ></ns-challenge-actions>
 </FlexboxLayout>
