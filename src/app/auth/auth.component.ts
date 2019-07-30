@@ -67,7 +67,7 @@ export class AuthComponent implements OnInit {
     if (this.isLogin) {
       // console.log('Logging in');
       this.authService.login(email, password).subscribe(res => {
-        this.router.navigate(['/challenges']);
+        this.router.navigate(['/challenges'], { clearHistory: true });
         this.isLoading = false;
       }, err => {
         console.log(err);
@@ -76,7 +76,7 @@ export class AuthComponent implements OnInit {
     } else {
       // console.log('Signing up');
       this.authService.signUp(email, password).subscribe(res => {
-        this.router.navigate(['/challenges']);
+        this.router.navigate(['/challenges'], { clearHistory: true });
         this.isLoading = false;
       }, err => {
         console.log(err);
