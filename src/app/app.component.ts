@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     })
     this.uiService.setRootVCRef(this.vcRef);
   }
+  
   onLogout() {
     this.uiService.toggleDrawer();
     this.authService.logout();
