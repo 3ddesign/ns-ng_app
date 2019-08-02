@@ -17,13 +17,13 @@ export class TodayComponent implements OnInit, OnDestroy {
   constructor(private challengeService: ChallangeService) {}
 
   ngOnInit() {
-    // this.curChallengeSub = this.challengeService.currentChallange.subscribe(
-    //   challenge => {
-    //     if (challenge) {
-    //       this.currentDay = challenge.currentDay;
-    //     }
-    //   }
-    // );
+    this.curChallengeSub = this.challengeService.currentChallange.subscribe(
+      challenge => {
+        if (challenge) {
+          this.currentDay = challenge.currentDay;
+        }
+      }
+    );
   }
 
   onActionSelected(action: DayStatus) {
