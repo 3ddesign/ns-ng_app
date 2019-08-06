@@ -1,6 +1,6 @@
 {
   "nativescript": {
-    "id": "org.nativescript.nsapp",
+    "id": "myId",
     "tns-android": {
       "version": "5.2.1"
     },
